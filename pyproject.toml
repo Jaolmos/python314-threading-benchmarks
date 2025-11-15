@@ -1,0 +1,10 @@
+[project]
+name = "benchmark-gil"
+version = "0.1.0"
+description = "Comparacion de rendimiento Python 3.12 vs 3.14 con y sin GIL"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv]
+# uv gestionara las versiones automaticamente
+

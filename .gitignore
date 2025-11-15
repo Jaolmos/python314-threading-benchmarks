@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# uv
+.uv/
+uv.lock
+
+# Results
+benchmark_results_*.txt
+resultados*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
