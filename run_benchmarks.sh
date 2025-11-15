@@ -35,9 +35,9 @@ main() {
     echo ""
     echo "######## TEST 1: CALCULOS MATEMATICOS ########"
 
-    run_test "3.12.3" "Python 3.12.3 (con GIL)" "test_calculos.py"
-    run_test "3.14" "Python 3.14.0 (con GIL)" "test_calculos.py"
-    run_test "3.14t" "Python 3.14.0t (sin GIL)" "test_calculos.py"
+    run_test "3.12.3" "Python 3.12.3 (con GIL)" "test_suma_cuadrados.py"
+    run_test "3.14" "Python 3.14.0 (con GIL)" "test_suma_cuadrados.py"
+    run_test "3.14t" "Python 3.14.0t (sin GIL)" "test_suma_cuadrados.py"
 
     # Test 2: Numeros primos
     echo ""
