@@ -48,6 +48,15 @@ main() {
     run_test "3.14" "Python 3.14.0 (con GIL)" "test_primos.py"
     run_test "3.14t" "Python 3.14.0t (sin GIL)" "test_primos.py"
 
+    # Test 3: Fibonacci
+    echo ""
+    echo ""
+    echo "######## TEST 3: FIBONACCI ########"
+
+    run_test "3.12.3" "Python 3.12.3 (con GIL)" "test_fibonacci.py"
+    run_test "3.14" "Python 3.14.0 (con GIL)" "test_fibonacci.py"
+    run_test "3.14t" "Python 3.14.0t (sin GIL)" "test_fibonacci.py"
+
     echo ""
     echo "========================================================"
     echo "  Benchmarks completados"

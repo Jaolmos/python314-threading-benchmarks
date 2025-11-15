@@ -46,7 +46,6 @@ uv python list
 - `test_version.py` - Script simple para verificar version de Python
 - `run_benchmarks.sh` - Script para ejecutar todos los benchmarks automaticamente
 - `demo_versiones.sh` - Script para demostrar como cambiar entre versiones
-- `PROGRESO.md` - Memoria del proyecto con estado actual y resultados
 - `pyproject.toml` - Configuracion del proyecto para uv
 
 ## Ejecutar las pruebas

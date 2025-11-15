@@ -57,7 +57,7 @@ if __name__ == "__main__":
     print("=" * 60)
     
     NUM_THREADS = 4
-    N = 5_000_000  # Fibonacci de 5 millones
+    N = 500_000  # Fibonacci de 500 mil
     
     print(f"\nPrueba: {NUM_THREADS} calculos de Fibonacci({N:,})")
     print("-" * 60)
