@@ -61,7 +61,7 @@ if __name__ == "__main__":
     fibonacci_numbers = [350_000, 375_000, 400_000, 425_000]
     
     print(f"\nPrueba: {NUM_THREADS} calculos de Fibonacci diferentes")
-    print(f"Numeros: {', '.join([f'{n:,}' for n in fibonacci_numbers])}")
+    print(f"Fibonacci de: {', '.join([f'{n:,}' for n in fibonacci_numbers])}")
     print("-" * 60)
     
     # Prueba secuencial
