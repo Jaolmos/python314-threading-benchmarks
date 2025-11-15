@@ -54,7 +54,7 @@ def run_parallel(ranges):
         threads.append(t)
         t.start()
     
-    # Esperar a que terminen
+    # Esperar a que todos los threads completen su ejecucion
     for t in threads:
         t.join()
     
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     print(f"Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
     print("=" * 60)
     
-    # Dividir el rango en 4 partes
+    # Dividir el rango en partes iguales
     TOTAL = 500_000
     NUM_PARTS = 4
     RANGE_SIZE = TOTAL // NUM_PARTS

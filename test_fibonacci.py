@@ -43,7 +43,7 @@ def run_parallel(num_threads, n):
         threads.append(t)
         t.start()
     
-    # Esperar a que terminen
+    # Esperar a que todos los threads completen su ejecucion
     for t in threads:
         t.join()
     
