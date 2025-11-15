@@ -1,4 +1,4 @@
-# Benchmark: Python 3.12 vs 3.14 (GIL vs No-GIL)
+# Benchmark: Python 3.12 vs 3.14 (GIL vs sin GIL)
 
 Proyecto de comparacion de rendimiento entre diferentes versiones de Python con y sin GIL (Global Interpreter Lock).
 

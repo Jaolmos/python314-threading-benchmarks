@@ -25,7 +25,7 @@ run_test() {
 main() {
     echo ""
     echo "========================================================"
-    echo "  Benchmark: Python 3.12 vs 3.14 (GIL vs No-GIL)"
+    echo "  Benchmark: Python 3.12 vs 3.14 (GIL vs sin GIL)"
     echo "========================================================"
     echo "  Guardando resultados en: $RESULTS_FILE"
     echo "========================================================"
