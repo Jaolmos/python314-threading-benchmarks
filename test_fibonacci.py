@@ -19,26 +19,26 @@ def fibonacci(n, results, index):
     results[index] = b
 
 
-def run_sequential(num_tasks, n):
+def run_sequential(fibonacci_numbers):
     """Ejecuta las tareas de forma secuencial"""
-    results = [0] * num_tasks
+    results = [0] * len(fibonacci_numbers)
     start = time.time()
     
-    for i in range(num_tasks):
+    for i, n in enumerate(fibonacci_numbers):
         fibonacci(n, results, i)
     
     elapsed = time.time() - start
     return elapsed, results
 
 
-def run_parallel(num_threads, n):
+def run_parallel(fibonacci_numbers):
     """Ejecuta las tareas en paralelo usando threads"""
-    results = [0] * num_threads
+    results = [0] * len(fibonacci_numbers)
     threads = []
     start = time.time()
     
     # Crear y lanzar threads
-    for i in range(num_threads):
+    for i, n in enumerate(fibonacci_numbers):
         t = threading.Thread(target=fibonacci, args=(n, results, i))
         threads.append(t)
         t.start()
@@ -56,20 +56,22 @@ if __name__ == "__main__":
     print(f"Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
     print("=" * 60)
     
+    # Cada thread calcula un Fibonacci diferente (numeros balanceados)
     NUM_THREADS = 4
-    N = 500_000  # Fibonacci de 500 mil
+    fibonacci_numbers = [350_000, 375_000, 400_000, 425_000]
     
-    print(f"\nPrueba: {NUM_THREADS} calculos de Fibonacci({N:,})")
+    print(f"\nPrueba: {NUM_THREADS} calculos de Fibonacci diferentes")
+    print(f"Numeros: {', '.join([f'{n:,}' for n in fibonacci_numbers])}")
     print("-" * 60)
     
     # Prueba secuencial
     print("\n[1] Ejecucion secuencial")
-    time_seq, result_seq = run_sequential(NUM_THREADS, N)
+    time_seq, result_seq = run_sequential(fibonacci_numbers)
     print(f"Tiempo: {time_seq:.3f} segundos")
     
     # Prueba paralela
     print("\n[2] Ejecucion paralela (threads)")
-    time_par, result_par = run_parallel(NUM_THREADS, N)
+    time_par, result_par = run_parallel(fibonacci_numbers)
     print(f"Tiempo: {time_par:.3f} segundos")
     
     # Analisis

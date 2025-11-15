@@ -7,35 +7,35 @@ import time
 import sys
 
 
-def calculate_squares(n, results, index):
-    """Calcula la suma de cuadrados hasta n"""
+def calculate_squares(start, end, results, index):
+    """Calcula la suma de cuadrados en un rango"""
     total = 0
-    for i in range(n):
+    for i in range(start, end):
         total += i * i
     results[index] = total
 
 
-def run_sequential(num_tasks, n):
+def run_sequential(ranges):
     """Ejecuta las tareas de forma secuencial"""
-    results = [0] * num_tasks
+    results = [0] * len(ranges)
     start = time.time()
     
-    for i in range(num_tasks):
-        calculate_squares(n, results, i)
+    for i, (start_range, end_range) in enumerate(ranges):
+        calculate_squares(start_range, end_range, results, i)
     
     elapsed = time.time() - start
     return elapsed, sum(results)
 
 
-def run_parallel(num_threads, n):
+def run_parallel(ranges):
     """Ejecuta las tareas en paralelo usando threads"""
-    results = [0] * num_threads
+    results = [0] * len(ranges)
     threads = []
     start = time.time()
     
     # Crear y lanzar threads
-    for i in range(num_threads):
-        t = threading.Thread(target=calculate_squares, args=(n, results, i))
+    for i, (start_range, end_range) in enumerate(ranges):
+        t = threading.Thread(target=calculate_squares, args=(start_range, end_range, results, i))
         threads.append(t)
         t.start()
     
@@ -52,20 +52,28 @@ if __name__ == "__main__":
     print(f"Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
     print("=" * 60)
     
+    # Dividir el rango en partes iguales
+    TOTAL = 10_000_000
     NUM_THREADS = 4
-    N = 10_000_000
+    RANGE_SIZE = TOTAL // NUM_THREADS
     
-    print(f"\nPrueba: {NUM_THREADS} tareas, {N:,} iteraciones cada una")
+    ranges = []
+    for i in range(NUM_THREADS):
+        start = i * RANGE_SIZE
+        end = start + RANGE_SIZE
+        ranges.append((start, end))
+    
+    print(f"\nPrueba: Suma de cuadrados hasta {TOTAL:,} en {NUM_THREADS} rangos")
     print("-" * 60)
     
     # Prueba secuencial
     print("\n[1] Ejecucion secuencial")
-    time_seq, result_seq = run_sequential(NUM_THREADS, N)
+    time_seq, result_seq = run_sequential(ranges)
     print(f"Tiempo: {time_seq:.3f} segundos")
     
     # Prueba paralela
     print("\n[2] Ejecucion paralela (threads)")
-    time_par, result_par = run_parallel(NUM_THREADS, N)
+    time_par, result_par = run_parallel(ranges)
     print(f"Tiempo: {time_par:.3f} segundos")
     
     # Analisis
