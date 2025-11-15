@@ -17,19 +17,19 @@ echo ""
 echo ""
 
 echo ">>> Test 2: Python 3.14.0 (con GIL)"
-echo "Comando: uv run --python cpython-3.14.0-linux-x86_64-gnu test_version.py"
-uv run --python cpython-3.14.0-linux-x86_64-gnu test_version.py
+echo "Comando: uv run --python 3.14 test_version.py"
+uv run --python 3.14 test_version.py
 
 echo ""
 echo ""
 
 echo ">>> Test 3: Python 3.14.0t (sin GIL - freethreaded)"
-echo "Comando: uv run --python cpython-3.14.0+freethreaded-linux-x86_64-gnu test_version.py"
-uv run --python cpython-3.14.0+freethreaded-linux-x86_64-gnu test_version.py
+echo "Comando: uv run --python 3.14t test_version.py"
+uv run --python 3.14t test_version.py
 
 echo ""
 echo "=========================================================="
-echo "  Como ves, cada comando usa una version diferente"
+echo "  Cada comando usa una version diferente"
 echo "  No hay que activar/desactivar nada"
 echo "=========================================================="
 echo ""
