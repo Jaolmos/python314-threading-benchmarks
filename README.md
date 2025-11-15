@@ -10,17 +10,27 @@ Python 3.14 introduce oficialmente soporte para **free-threaded Python** (sin GI
 
 ## Versiones comparadas
 
-- **Python 3.12.3** - Version estable con GIL (tu version actual del sistema)
-- **Python 3.14.0** - Version nueva con GIL (para ver mejoras generales)
-- **Python 3.14.0+freethreaded** - Version nueva SIN GIL (la estrella del show)
+- **Python 3.12.3** - Version estable con GIL
+- **Python 3.14.0** - Version nueva con GIL
+- **Python 3.14.0+freethreaded** - Version nueva sin GIL
 
 ## Instalacion
 
 ### 1. Instalar uv
 
+`uv` es un gestor ultrarapido de entornos Python (escrito en Rust).
+
+**Opcion 1 (recomendada):**
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+
+**Opcion 2 (con pip):**
+```bash
+pip install uv
+```
+
+**Alternativas:** `pyenv` o `conda`.
 
 ### 2. Instalar versiones de Python
 
