@@ -50,7 +50,7 @@ uv python list
 
 ## Archivos del proyecto
 
-- `test_suma_cuadrados.py` - Test con calculos matematicos intensivos (suma de cuadrados)
+- `test_suma_cuadrados.py` - Test de calculo intensivo de suma de cuadrados
 - `test_primos.py` - Test con busqueda de numeros primos
 - `test_fibonacci.py` - Test con calculo de numeros de Fibonacci
 - `test_version.py` - Script simple para verificar version de Python
@@ -70,7 +70,7 @@ Esto ejecutara todos los tests con las 3 versiones de Python y guardara automati
 
 ### Opcion 2: Ejecutar tests individuales
 
-**Test de calculos matematicos:**
+**Test de suma de cuadrados:**
 
 ```bash
 uv run --python 3.12.3 test_suma_cuadrados.py
@@ -94,7 +94,7 @@ uv run --python 3.14t test_primos.py
 
 ## Resultados obtenidos
 
-### Test 1: Calculos matematicos (suma de cuadrados)
+### Test 1: Suma de cuadrados
 
 | Version | Secuencial | Paralelo | Resultado |
 |---------|-----------|----------|-----------|

@@ -31,9 +31,9 @@ main() {
     echo "========================================================"
     echo ""
 
-    # Test 1: Calculos matematicos
+    # Test 1: Suma de cuadrados
     echo ""
-    echo "######## TEST 1: CALCULOS MATEMATICOS ########"
+    echo "######## TEST 1: SUMA DE CUADRADOS ########"
 
     run_test "3.12.3" "Python 3.12.3 (con GIL)" "test_suma_cuadrados.py"
     run_test "3.14" "Python 3.14.0 (con GIL)" "test_suma_cuadrados.py"
