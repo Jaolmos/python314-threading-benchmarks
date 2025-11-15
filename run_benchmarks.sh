@@ -42,7 +42,7 @@ main() {
     # Test 2: Numeros primos
     echo ""
     echo ""
-    echo "######## TEST 2: BUSQUEDA DE PRIMOS ########"
+    echo "######## TEST 2: BUSQUEDA DE NUMEROS PRIMOS ########"
 
     run_test "3.12.3" "Python 3.12.3 (con GIL)" "test_primos.py"
     run_test "3.14" "Python 3.14.0 (con GIL)" "test_primos.py"

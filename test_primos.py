@@ -22,7 +22,7 @@ def is_prime(n):
 
 
 def count_primes(start, end, results, index):
-    """Cuenta cuantos primos hay en un rango"""
+    """Cuenta cuantos numeros primos hay en un rango"""
     count = 0
     for n in range(start, end):
         if is_prime(n):
@@ -78,20 +78,20 @@ if __name__ == "__main__":
         end = start + RANGE_SIZE
         ranges.append((start, end))
     
-    print(f"\nBuscando primos hasta {TOTAL:,} en {NUM_THREADS} rangos")
+    print(f"\nBuscando numeros primos hasta {TOTAL:,} en {NUM_THREADS} rangos")
     print("-" * 60)
     
     # Prueba secuencial
     print("\n[1] Ejecucion secuencial")
     time_seq, primes_seq = run_sequential(ranges)
     print(f"Tiempo: {time_seq:.3f} segundos")
-    print(f"Primos encontrados: {primes_seq:,}")
+    print(f"Numeros primos encontrados: {primes_seq:,}")
     
     # Prueba paralela
     print("\n[2] Ejecucion paralela (threads)")
     time_par, primes_par = run_parallel(ranges)
     print(f"Tiempo: {time_par:.3f} segundos")
-    print(f"Primos encontrados: {primes_par:,}")
+    print(f"Numeros primos encontrados: {primes_par:,}")
     
     # Analisis
     print("\n" + "=" * 60)
