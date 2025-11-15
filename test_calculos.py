@@ -16,7 +16,7 @@ def calculate_squares(n, results, index):
 
 
 def run_sequential(num_tasks, n):
-    """Ejecuta las tareas de forma secuencial (una tras otra)"""
+    """Ejecuta las tareas de forma secuencial"""
     results = [0] * num_tasks
     start = time.time()
     
