@@ -1,5 +1,5 @@
 """
-Test de rendimiento: Calculos matematicos intensivos
+Test de rendimiento: Calculo intensivo de suma de cuadrados
 Compara ejecucion secuencial vs paralela con threads
 """
 import threading
