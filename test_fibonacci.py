@@ -20,7 +20,7 @@ def fibonacci(n, results, index):
 
 
 def run_sequential(num_tasks, n):
-    """Ejecuta calculos de forma secuencial"""
+    """Ejecuta las tareas de forma secuencial"""
     results = [0] * num_tasks
     start = time.time()
     
@@ -32,7 +32,7 @@ def run_sequential(num_tasks, n):
 
 
 def run_parallel(num_threads, n):
-    """Ejecuta calculos en paralelo usando threads"""
+    """Ejecuta las tareas en paralelo usando threads"""
     results = [0] * num_threads
     threads = []
     start = time.time()

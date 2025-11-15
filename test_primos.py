@@ -31,7 +31,7 @@ def count_primes(start, end, results, index):
 
 
 def run_sequential(ranges):
-    """Ejecuta el conteo de forma secuencial"""
+    """Ejecuta las tareas de forma secuencial"""
     results = [0] * len(ranges)
     start = time.time()
     
@@ -43,7 +43,7 @@ def run_sequential(ranges):
 
 
 def run_parallel(ranges):
-    """Ejecuta el conteo en paralelo usando threads"""
+    """Ejecuta las tareas en paralelo usando threads"""
     results = [0] * len(ranges)
     threads = []
     start = time.time()
@@ -69,16 +69,16 @@ if __name__ == "__main__":
     
     # Dividir el rango en partes iguales
     TOTAL = 500_000
-    NUM_PARTS = 4
-    RANGE_SIZE = TOTAL // NUM_PARTS
+    NUM_THREADS = 4
+    RANGE_SIZE = TOTAL // NUM_THREADS
     
     ranges = []
-    for i in range(NUM_PARTS):
+    for i in range(NUM_THREADS):
         start = i * RANGE_SIZE
         end = start + RANGE_SIZE
         ranges.append((start, end))
     
-    print(f"\nBuscando primos hasta {TOTAL:,} en {NUM_PARTS} rangos")
+    print(f"\nBuscando primos hasta {TOTAL:,} en {NUM_THREADS} rangos")
     print("-" * 60)
     
     # Prueba secuencial
