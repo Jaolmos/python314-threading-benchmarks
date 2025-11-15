@@ -26,10 +26,10 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 ```bash
 # Python 3.14.0 con GIL
-uv python install cpython-3.14.0-linux-x86_64-gnu
+uv python install 3.14
 
 # Python 3.14.0 sin GIL (free-threaded)
-uv python install cpython-3.14.0+freethreaded-linux-x86_64-gnu
+uv python install 3.14t
 ```
 
 ### 3. Verificar instalacion
@@ -65,22 +65,22 @@ Esto ejecutara todos los tests con las 3 versiones de Python y guardara automati
 
 ```bash
 uv run --python 3.12.3 test_calculos.py
-uv run --python cpython-3.14.0-linux-x86_64-gnu test_calculos.py
-uv run --python cpython-3.14.0+freethreaded-linux-x86_64-gnu test_calculos.py
+uv run --python 3.14 test_calculos.py
+uv run --python 3.14t test_calculos.py
 ```
 
 **Test de Fibonacci:**
 
 ```bash
 uv run --python 3.12.3 test_fibonacci.py
-uv run --python cpython-3.14.0+freethreaded-linux-x86_64-gnu test_fibonacci.py
+uv run --python 3.14t test_fibonacci.py
 ```
 
 **Test de numeros primos:**
 
 ```bash
 uv run --python 3.12.3 test_primos.py
-uv run --python cpython-3.14.0+freethreaded-linux-x86_64-gnu test_primos.py
+uv run --python 3.14t test_primos.py
 ```
 
 ## Resultados obtenidos

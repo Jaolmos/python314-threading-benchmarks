@@ -36,8 +36,8 @@ main() {
     echo "######## TEST 1: CALCULOS MATEMATICOS ########"
 
     run_test "3.12.3" "Python 3.12.3 (con GIL)" "test_calculos.py"
-    run_test "cpython-3.14.0-linux-x86_64-gnu" "Python 3.14.0 (con GIL)" "test_calculos.py"
-    run_test "cpython-3.14.0+freethreaded-linux-x86_64-gnu" "Python 3.14.0t (sin GIL)" "test_calculos.py"
+    run_test "3.14" "Python 3.14.0 (con GIL)" "test_calculos.py"
+    run_test "3.14t" "Python 3.14.0t (sin GIL)" "test_calculos.py"
 
     # Test 2: Numeros primos
     echo ""
@@ -45,8 +45,8 @@ main() {
     echo "######## TEST 2: BUSQUEDA DE PRIMOS ########"
 
     run_test "3.12.3" "Python 3.12.3 (con GIL)" "test_primos.py"
-    run_test "cpython-3.14.0-linux-x86_64-gnu" "Python 3.14.0 (con GIL)" "test_primos.py"
-    run_test "cpython-3.14.0+freethreaded-linux-x86_64-gnu" "Python 3.14.0t (sin GIL)" "test_primos.py"
+    run_test "3.14" "Python 3.14.0 (con GIL)" "test_primos.py"
+    run_test "3.14t" "Python 3.14.0t (sin GIL)" "test_primos.py"
 
     echo ""
     echo "========================================================"
