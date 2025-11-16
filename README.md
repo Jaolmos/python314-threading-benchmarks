@@ -2,7 +2,7 @@
 
 Proyecto de comparación de rendimiento entre diferentes versiones de Python con y sin GIL (Global Interpreter Lock).
 
-## Qué es el GIL
+## ¿Qué es el GIL?
 
 El **GIL (Global Interpreter Lock)** es un mecanismo que permite que solo un thread ejecute código Python a la vez. Esto limita el rendimiento cuando usamos multithreading en tareas intensivas de CPU.
 
@@ -177,7 +177,7 @@ Los resultados demuestran que **Python 3.14t sin GIL logra paralelismo real** us
 
 4. **Python 3.14t es el futuro** para aplicaciones con procesamiento paralelo intensivo
 
-## Cuándo usar cada versión
+## ¿Cuándo usar cada versión?
 
 **Python 3.12/3.14 con GIL:**
 - Aplicaciones que no usan multithreading intensivo
