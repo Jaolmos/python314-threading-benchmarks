@@ -92,6 +92,14 @@ uv run --python 3.12.3 test_primos.py
 uv run --python 3.14t test_primos.py
 ```
 
+## Entorno de pruebas
+
+Las pruebas se realizaron en:
+- **Procesador:** AMD Ryzen 7 (16 cores)
+- **Sistema Operativo:** Ubuntu 24.04.3 LTS
+- **Kernel:** Linux 6.14.0-33-generic
+- **Threads utilizados:** 4 (de 16 núcleos disponibles)
+
 ## Resultados obtenidos
 
 Todos los benchmarks se ejecutan con **4 threads** para aprovechar múltiples núcleos de CPU.
