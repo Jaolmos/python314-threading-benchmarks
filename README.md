@@ -177,7 +177,7 @@ Los resultados demuestran que **Python 3.14t sin GIL logra paralelismo real** us
 
 4. **Python 3.14t es el futuro** para aplicaciones con procesamiento paralelo intensivo
 
-5. **Python 3.14 con GIL es más rápido que 3.12 en ejecución secuencial**: ~29% en suma de cuadrados y ~15% en búsqueda de primos
+5. **Python 3.14 con GIL en ejecución secuencial**: más rápido que 3.12 en suma de cuadrados (~29%) y búsqueda de primos (~15%), pero más lento en Fibonacci (~32%)
 
 ## ¿Cuándo usar cada versión?
 
