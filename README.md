@@ -126,7 +126,7 @@ Busca números primos hasta 500,000 en 4 rangos. Encuentra 41,538 números primo
 
 ### Test 3: Fibonacci
 
-Calcula 4 números de Fibonacci diferentes: Fib(350K), Fib(375K), Fib(400K), Fib(425K).
+Calcula 4 números de Fibonacci en posiciones diferentes: el número 350,000, 375,000, 400,000 y 425,000 de la secuencia.
 
 | Versión | Secuencial | Paralelo | Resultado |
 |---------|-----------|----------|-----------|
