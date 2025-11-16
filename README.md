@@ -102,7 +102,7 @@ Las pruebas se realizaron en:
 
 ## Resultados obtenidos
 
-Todos los benchmarks se ejecutan con **4 threads** para aprovechar múltiples núcleos de CPU.
+Comparación de ejecución secuencial vs paralela con **4 threads**.
 
 ### Test 1: Suma de cuadrados
 
