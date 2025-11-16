@@ -1,31 +1,31 @@
 # Benchmark: Python 3.12 vs 3.14 (GIL vs sin GIL)
 
-Proyecto de comparacion de rendimiento entre diferentes versiones de Python con y sin GIL (Global Interpreter Lock).
+Proyecto de comparación de rendimiento entre diferentes versiones de Python con y sin GIL (Global Interpreter Lock).
 
-## Que es el GIL
+## Qué es el GIL
 
-El **GIL (Global Interpreter Lock)** es un mecanismo que permite que solo un thread ejecute codigo Python a la vez. Esto limita el rendimiento cuando usamos multithreading en tareas intensivas de CPU.
+El **GIL (Global Interpreter Lock)** es un mecanismo que permite que solo un thread ejecute código Python a la vez. Esto limita el rendimiento cuando usamos multithreading en tareas intensivas de CPU.
 
 Python 3.14 introduce oficialmente soporte para **free-threaded Python** (sin GIL), permitiendo verdadero paralelismo en threads.
 
 ## Versiones comparadas
 
-- **Python 3.12.3** - Version estable con GIL
-- **Python 3.14.0** - Version nueva con GIL
-- **Python 3.14.0+freethreaded** - Version nueva sin GIL
+- **Python 3.12.3** - Versión estable con GIL
+- **Python 3.14.0** - Última versión con GIL
+- **Python 3.14.0+freethreaded** - Última versión sin GIL
 
-## Instalacion
+## Instalación
 
 ### 1. Instalar uv
 
 `uv` es un gestor ultrarapido de entornos Python (escrito en Rust).
 
-**Opcion 1 (recomendada):**
+**Opción 1 (recomendada):**
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-**Opcion 2 (con pip):**
+**Opción 2 (con pip):**
 ```bash
 pip install uv
 ```
@@ -42,7 +42,7 @@ uv python install 3.14
 uv python install 3.14t
 ```
 
-### 3. Verificar instalacion
+### 3. Verificar instalación
 
 ```bash
 uv python list
@@ -50,25 +50,25 @@ uv python list
 
 ## Archivos del proyecto
 
-- `test_suma_cuadrados.py` - Test de calculo intensivo de suma de cuadrados
-- `test_primos.py` - Test con busqueda de numeros primos
-- `test_fibonacci.py` - Test con calculo de numeros de Fibonacci
-- `test_version.py` - Script simple para verificar version de Python
-- `run_benchmarks.sh` - Script para ejecutar todos los benchmarks automaticamente
-- `demo_versiones.sh` - Script para demostrar como cambiar entre versiones
-- `pyproject.toml` - Configuracion del proyecto para uv
+- `test_suma_cuadrados.py` - Test de cálculo intensivo de suma de cuadrados
+- `test_primos.py` - Test con búsqueda de números primos
+- `test_fibonacci.py` - Test con cálculo de números de Fibonacci
+- `test_version.py` - Script simple para verificar versión de Python
+- `run_benchmarks.sh` - Script para ejecutar todos los benchmarks automáticamente
+- `demo_versiones.sh` - Script para demostrar cómo cambiar entre versiones
+- `pyproject.toml` - Configuración del proyecto para uv
 
 ## Ejecutar las pruebas
 
-### Opcion 1: Ejecutar todos los benchmarks automaticamente
+### Opción 1: Ejecutar todos los benchmarks automáticamente
 
 ```bash
 ./run_benchmarks.sh
 ```
 
-Esto ejecutara todos los tests con las 3 versiones de Python y guardara automaticamente los resultados en un archivo `resultados_YYYYMMDD_HHMMSS.txt`.
+Esto ejecutará todos los tests con las 3 versiones de Python y guardará automáticamente los resultados en un archivo `resultados_YYYYMMDD_HHMMSS.txt`.
 
-### Opcion 2: Ejecutar tests individuales
+### Opción 2: Ejecutar tests individuales
 
 **Test de suma de cuadrados:**
 
@@ -85,7 +85,7 @@ uv run --python 3.12.3 test_fibonacci.py
 uv run --python 3.14t test_fibonacci.py
 ```
 
-**Test de numeros primos:**
+**Test de números primos:**
 
 ```bash
 uv run --python 3.12.3 test_primos.py
@@ -94,72 +94,97 @@ uv run --python 3.14t test_primos.py
 
 ## Resultados obtenidos
 
+Todos los benchmarks se ejecutan con **4 threads** para aprovechar múltiples núcleos de CPU.
+
 ### Test 1: Suma de cuadrados
 
-| Version | Secuencial | Paralelo | Resultado |
-|---------|-----------|----------|-----------|
-| Python 3.12.3 (GIL) | 2.182s | 2.467s | Slowdown 1.13x |
-| Python 3.14.0 (GIL) | 1.683s | 1.909s | Slowdown 1.13x |
-| Python 3.14.0t (sin GIL) | 1.541s | 0.429s | **Speedup 3.59x** |
+Cálculo de suma de cuadrados hasta 10 millones, dividido en 4 rangos.
 
-### Test 2: Busqueda de numeros primos
-
-| Version | Secuencial | Paralelo | Resultado |
+| Versión | Secuencial | Paralelo | Resultado |
 |---------|-----------|----------|-----------|
-| Python 3.12.3 (GIL) | 0.438s | 0.537s | Slowdown 1.23x |
-| Python 3.14.0 (GIL) | 0.378s | 0.462s | Slowdown 1.22x |
-| Python 3.14.0t (sin GIL) | 0.437s | 0.163s | **Speedup 2.69x** |
+| Python 3.12.3 (GIL) | 0.545s | 0.602s | Slowdown 1.10x |
+| Python 3.14.0 (GIL) | 0.387s | 0.457s | Slowdown 1.18x |
+| Python 3.14.0t (sin GIL) | 0.390s | 0.109s | **Speedup 3.58x** |
+
+### Test 2: Búsqueda de números primos
+
+Busca números primos hasta 500,000 en 4 rangos. Encuentra 41,538 números primos.
+
+| Versión | Secuencial | Paralelo | Resultado |
+|---------|-----------|----------|-----------|
+| Python 3.12.3 (GIL) | 0.443s | 0.543s | Slowdown 1.22x |
+| Python 3.14.0 (GIL) | 0.377s | 0.458s | Slowdown 1.21x |
+| Python 3.14.0t (sin GIL) | 0.434s | 0.156s | **Speedup 2.79x** |
+
+### Test 3: Fibonacci
+
+Calcula 4 números de Fibonacci diferentes: Fib(350K), Fib(375K), Fib(400K), Fib(425K).
+
+| Versión | Secuencial | Paralelo | Resultado |
+|---------|-----------|----------|-----------|
+| Python 3.12.3 (GIL) | 4.385s | 5.178s | Slowdown 1.18x |
+| Python 3.14.0 (GIL) | 5.801s | 7.257s | Slowdown 1.25x |
+| Python 3.14.0t (sin GIL) | 5.791s | 1.801s | **Speedup 3.22x** |
 
 ## Interpretar los resultados
 
-### Slowdown (mas lento)
+### Slowdown (más lento)
 
-Cuando el resultado muestra "Slowdown", significa que usar multithreading fue **mas lento** que ejecutar todo secuencialmente. Esto ocurre por el GIL:
+Cuando el resultado muestra "Slowdown", significa que usar multithreading fue **más lento** que ejecutar todo secuencialmente. Esto ocurre por el GIL:
 
 - El GIL impide que los threads se ejecuten realmente en paralelo
 - Los threads se turnan para ejecutarse
 - Hay overhead (costo adicional) por gestionar los threads
 - Resultado: Peor rendimiento que hacer todo de forma secuencial
 
-### Speedup (mas rapido)
+### Speedup (más rápido)
 
-Cuando el resultado muestra "Speedup", significa que usar multithreading fue **mas rapido** que ejecutar todo secuencialmente. Esto ocurre sin el GIL:
+Cuando el resultado muestra "Speedup", significa que usar multithreading fue **más rápido** que ejecutar todo secuencialmente. Esto ocurre sin el GIL:
 
-- Los threads pueden ejecutarse simultaneamente en diferentes nucleos de CPU
+- Los threads pueden ejecutarse simultáneamente en diferentes núcleos de CPU
 - Aprovecha el paralelismo real del hardware
-- Speedup de 3.59x significa que es casi 4 veces mas rapido
+- Speedup de 3.59x significa que es casi 4 veces más rápido
 - Resultado: Mucho mejor rendimiento
 
 ## Conclusiones
 
-1. **El GIL si limita el rendimiento**: Python 3.12 y 3.14 con GIL son 13-23% mas lentos con multithreading
-2. **Python 3.14 sin GIL es impresionante**: 2.5-3.5x mas rapido en tareas paralelas
-3. **Python 3.14 es mas rapido en general**: Incluso con GIL, tiene mejoras de optimizacion
-4. **Multithreading vale la pena sin GIL**: Si tu codigo usa threads, Python 3.14t es el futuro
+### Paralelismo real con Python 3.14t sin GIL
 
-## Cuando usar cada version
+Los resultados demuestran que **Python 3.14t sin GIL logra paralelismo real** usando los 4 threads:
+
+1. **Con GIL (Python 3.12/3.14)**: El multithreading es **10-25% más lento** que secuencial
+   - Los 4 threads se turnan (solo 1 ejecuta a la vez)
+   - Hay overhead por gestionar threads sin beneficio
+   - **No hay paralelismo real**
+
+2. **Sin GIL (Python 3.14t)**: El multithreading es **~3x más rápido** que secuencial
+   - Los 4 threads ejecutan simultáneamente en 4 núcleos de CPU
+   - Aprovecha el paralelismo real del hardware
+   - **Paralelismo verdadero** ✅
+
+3. **Speedup promedio con 4 threads**: **3.20x** (cercano al ideal de 4x)
+   - Suma de cuadrados: 3.58x
+   - Búsqueda de primos: 2.79x
+   - Fibonacci: 3.22x
+
+4. **Python 3.14t es el futuro** para aplicaciones con procesamiento paralelo intensivo
+
+## Cuándo usar cada versión
 
 **Python 3.12/3.14 con GIL:**
 - Aplicaciones que no usan multithreading intensivo
 - Scripts simples
-- Compatibilidad con librerias existentes
+- Compatibilidad con librerías existentes
 
 **Python 3.14 sin GIL:**
 - Aplicaciones con procesamiento paralelo intensivo
-- Servidores web con muchas conexiones simultaneas
-- Analisis de datos con multiples threads
-- Cualquier codigo CPU-intensivo que use threads
+- Servidores web con muchas conexiones simultáneas
+- Análisis de datos con múltiples threads
+- Cualquier código CPU-intensivo que use threads
 
 ## Recursos adicionales
 
 - [Python 3.14.0 Release Notes](https://www.python.org/downloads/release/python-3140/)
 - [PEP 779: Free-threaded Python](https://peps.python.org/pep-0779/)
-- [Documentacion de uv](https://github.com/astral-sh/uv)
-- [Documentacion de threading](https://docs.python.org/3/library/threading.html)
-
-## Notas tecnicas
-
-- uv gestiona entornos virtuales automaticamente, no necesitas activarlos manualmente
-- Cada version de Python tiene su propio entorno aislado
-- Los benchmarks usan 4 threads para aprovechar multiples nucleos
-- El archivo `.venv` se recrea automaticamente al cambiar de version
+- [Documentación de uv](https://github.com/astral-sh/uv)
+- [Documentación de threading](https://docs.python.org/3/library/threading.html)
