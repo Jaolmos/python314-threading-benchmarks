@@ -168,7 +168,7 @@ Los resultados demuestran que **Python 3.14t sin GIL logra paralelismo real** us
 2. **Sin GIL (Python 3.14t)**: El multithreading es **~3x más rápido** que secuencial
    - Los 4 threads ejecutan simultáneamente en 4 núcleos de CPU
    - Aprovecha el paralelismo real del hardware
-   - **Paralelismo verdadero** ✅
+   - **Paralelismo real** ✅
 
 3. **Speedup promedio con 4 threads**: **3.20x** (cercano al ideal de 4x)
    - Suma de cuadrados: 3.58x
